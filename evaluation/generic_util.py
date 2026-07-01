@@ -76,7 +76,7 @@ def trapezoid(x, y, x_max=None):
     return np.sum(0.5 * (y[1:] + y[:-1]) * (x[1:] - x[:-1])) + correction
 
 
-def read_tiff(file_path_no_ext, exts=('.tif', '.tiff', '.TIF', '.TIFF')):
+def read_tiff(file_path_no_ext, exts=('.tiff',)):
     """Read a TIFF file from a given path without the TIFF extension.
 
     Args:
