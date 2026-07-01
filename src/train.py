@@ -12,9 +12,9 @@ def train(
     data_root: str,
     category: str,
     output_dir: str = "outputs/memory_bank",
-    image_size: int = 256,
+    image_size: int = 224,
     batch_size: int = 8,
-    coreset_ratio: float = 0.5,
+    coreset_ratio: float = 0.1,
     device: str = "cpu",
 ):
     print(f"\nTraining PatchCore on category: {category}")

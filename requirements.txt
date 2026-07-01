@@ -11,3 +11,5 @@ uvicorn
 python-multipart
 gradio
 opencv-python
+tifffile
+tabulate
