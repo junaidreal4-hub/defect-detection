@@ -6,6 +6,15 @@ import gradio as gr
 import numpy as np
 from PIL import Image
 
+from huggingface_hub import snapshot_download
+
+# Download memory bank at startup
+snapshot_download(
+    repo_id="Junaidreal4/defect-detection-weights",
+    repo_type="model",
+    local_dir="outputs/memory_bank"
+)
+
 from src.inference import available_categories, load_model, predict
 
 CATEGORIES = available_categories()
