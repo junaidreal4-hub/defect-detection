@@ -20,6 +20,8 @@ coreset-subsampled memory bank of normal patch features, and nearest-neighbour
 scoring. It ships a training pipeline, a TIFF exporter for the official MVTec
 evaluation, a FastAPI service, and a Gradio demo.
 
+![Defect localisation examples](https://raw.githubusercontent.com/junaidreal4-hub/defect-detection/refs/heads/assets/examples.png)
+
 ## Results
 
 Evaluated on the 15 MVTec AD categories (image-level AU-ROC, and AU-PRO for
@@ -30,11 +32,40 @@ localisation with a 0.3 FPR integration limit).
 | Image-level AU-ROC | 0.904 |
 | AU-PRO (localisation) | 0.917 |
 
+![Per-category results](assets/results.png)
+
+<details>
+<summary>Per-category numbers</summary>
+
+| Category | AU-ROC | AU-PRO |
+|---|---|---|
+| leather | 1.000 | 0.985 |
+| hazelnut | 1.000 | 0.956 |
+| bottle | 0.998 | 0.958 |
+| wood | 0.982 | 0.918 |
+| carpet | 0.980 | 0.965 |
+| metal nut | 0.979 | 0.927 |
+| zipper | 0.933 | 0.953 |
+| tile | 0.911 | 0.841 |
+| toothbrush | 0.894 | 0.933 |
+| transistor | 0.891 | 0.768 |
+| capsule | 0.882 | 0.946 |
+| cable | 0.877 | 0.900 |
+| pill | 0.821 | 0.927 |
+| screw | 0.708 | 0.931 |
+| grid | 0.701 | 0.844 |
+| **mean** | **0.904** | **0.917** |
+
+</details>
+
 Grid is trained at 256px rather than the default 224px; its fine periodic
 texture benefits from the denser feature grid, which raised its AU-ROC from
 0.637 to 0.701. Other categories showed no reliable gain from higher resolution
 and are trained at 224px. Per-category resolution is configured in
 [`src/config.py`](src/config.py).
+
+Example images in the figure above are from the
+[MVTec AD dataset](https://www.mvtec.com/company/research/datasets/mvtec-ad).
 
 ## Project layout
 
