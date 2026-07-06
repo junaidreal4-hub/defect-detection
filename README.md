@@ -1,3 +1,14 @@
+---
+title: Defect Detection
+emoji: 🔍
+colorFrom: blue
+colorTo: red
+sdk: gradio
+sdk_version: 5.33.0
+app_file: demo.py
+pinned: false
+---
+
 # Visual Defect Detection — PatchCore on MVTec AD
 
 Unsupervised anomaly detection for industrial inspection. A PatchCore model is
