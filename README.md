@@ -7,9 +7,14 @@ sdk: gradio
 sdk_version: 6.19.0
 app_file: demo.py
 pinned: false
+license: mit
 ---
 
 # Visual Defect Detection — PatchCore on MVTec AD
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Live Demo](https://img.shields.io/badge/%F0%9F%A4%97%20Live%20Demo-Hugging%20Face%20Space-blue)](https://huggingface.co/spaces/Junaidreal4/defect-detection)
+[![Python](https://img.shields.io/badge/Python-3.14-blue.svg)](requirements.txt)
 
 Unsupervised anomaly detection for industrial inspection. A PatchCore model is
 fit per product category using only defect-free images; at test time it scores
@@ -175,5 +180,6 @@ category, and the model returns the overlay and score.
 
 ## License
 
-The `evaluation/` directory contains the official MVTec evaluation scripts and
-is covered by its own license ([`evaluation/LICENSE.txt`](evaluation/LICENSE.txt)).
+This project is released under the [MIT License](LICENSE). The `evaluation/`
+directory contains the official MVTec evaluation scripts and retains its own
+license ([`evaluation/LICENSE.txt`](evaluation/LICENSE.txt)).

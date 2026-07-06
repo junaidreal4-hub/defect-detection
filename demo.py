@@ -8,12 +8,17 @@ from PIL import Image
 
 from huggingface_hub import snapshot_download
 
-# Download memory bank at startup
-snapshot_download(
-    repo_id="Junaidreal4/defect-detection-weights",
-    repo_type="model",
-    local_dir="outputs/memory_bank"
-)
+# Fetch the trained memory banks at startup. If the download fails (network,
+# hub outage), still launch the UI: available_categories() will simply come up
+# empty and the app reports "no trained model" instead of crashing.
+try:
+    snapshot_download(
+        repo_id="Junaidreal4/defect-detection-weights",
+        repo_type="model",
+        local_dir="outputs/memory_bank",
+    )
+except Exception as exc:
+    print(f"WARNING: could not download weights: {exc}")
 
 from src.inference import available_categories, load_model, predict
 

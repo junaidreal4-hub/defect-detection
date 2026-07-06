@@ -40,8 +40,10 @@ def list_categories():
     return {"categories": available_categories()}
 
 
+# Endpoints are deliberately sync: inference is CPU-bound, so FastAPI's
+# threadpool keeps it off the event loop.
 @app.post("/predict/{category}")
-async def predict_defect(category: str, file: UploadFile = File(...)):
+def predict_defect(category: str, file: UploadFile = File(...)):
     result = run_predict(get_model(category), file)
     return JSONResponse({
         "category": category,
@@ -51,7 +53,7 @@ async def predict_defect(category: str, file: UploadFile = File(...)):
 
 
 @app.post("/predict/{category}/heatmap")
-async def predict_heatmap(category: str, file: UploadFile = File(...)):
+def predict_heatmap(category: str, file: UploadFile = File(...)):
     """Return the heatmap overlay as a JPEG."""
     result = run_predict(get_model(category), file)
     _, buffer = cv2.imencode(".jpg", result["overlay_bgr"])
