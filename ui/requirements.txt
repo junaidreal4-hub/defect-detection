@@ -1,7 +1,0 @@
-gradio==6.19.0
-opencv-python-headless
-torch
-torchvision
-numpy
-Pillow
-huggingface_hub

@@ -48,7 +48,7 @@ src/
   export_anomaly_maps.py Write per-pixel heatmaps as TIFFs for evaluation
   utils.py               Offline analysis helpers
 api/app.py               FastAPI inference service
-ui/demo.py               Gradio demo
+demo.py                  Gradio demo (Hugging Face Spaces entry point)
 evaluation/              Official MVTec evaluation scripts (vendored)
 ```
 
@@ -113,11 +113,13 @@ uvicorn api.app:app --reload
 ### Demo
 
 ```bash
-python ui/demo.py
+python demo.py
 ```
 
-Upload an image, pick its category, and the model returns the overlay and score.
-Only categories with a trained memory bank appear in the dropdown.
+At startup the demo downloads the trained memory banks from the
+[`Junaidreal4/defect-detection-weights`](https://huggingface.co/Junaidreal4/defect-detection-weights)
+model repo, so it runs without local training. Upload an image, pick its
+category, and the model returns the overlay and score.
 
 ## How it works
 
